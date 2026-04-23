@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpicchio <gpicchio@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:34:44 by gpicchio          #+#    #+#             */
-/*   Updated: 2025/05/21 15:27:07 by gpicchio         ###   ########.fr       */
+/*   Updated: 2025/06/27 16:56:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,8 +214,6 @@ int	find_cmd_num(t_lexing *node)
 
 void	collect_piped_cmds(t_tree *node, t_lexing **cmds, int *i, t_gen *gen)
 {
-	int	val;
-
 	if (!node)
 		return ;
 	collect_piped_cmds(node->left, cmds, i, gen);
@@ -223,10 +221,7 @@ void	collect_piped_cmds(t_tree *node, t_lexing **cmds, int *i, t_gen *gen)
 		&& (!ft_strncmp(node->data->command[0], ">", 1)
 			|| !ft_strncmp(node->data->command[0], "<", 1))
 		&& node->data->command[1] && !node->data->command[2])
-	{
-		val = find_red(node->data, gen);
 		return ;
-	}
 	if (node->data && ft_strncmp(node->data->type, "command", 7) == 0)
 		cmds[(*i)++] = node->data;
 	collect_piped_cmds(node->right, cmds, i, gen);
@@ -277,9 +272,6 @@ int	check_other_doc(t_lexing *node)
 
 void	check_open(t_lexing *current, t_lexing **cleaned_data, t_gen *gen, int *here_doc_num)
 {
-	int			found;
-
-	found = 0;
 	if (current->next && check_other_doc(current->next))
 		handle_here_doc(current->next->value, NULL, here_doc_num, gen);
 	else if (current && current->next && (*cleaned_data))
