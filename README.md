@@ -1,9 +1,6 @@
 # miniShellPokemon
 
-<p align="center">
-	https://github.com/user-attachments/assets/a15d1706-bba4-4bac-beb5-78b0af40d7e0
-	alt="miniShellPokemon preview" width="900">
-</p>
+https://github.com/user-attachments/assets/a15d1706-bba4-4bac-beb5-78b0af40d7e0
 
 <p align="center">
 	A 42-style minishell with a Pokémon twist: a fully interactive shell written in C,
