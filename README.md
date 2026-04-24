@@ -47,7 +47,7 @@ make
 make re      # full rebuild
 make clean   # remove object files
 make fclean  # remove objects and the binary
-make vale    # run with valgrind and the provided suppression file
+make valgrind    # run with valgrind and the provided suppression file
 make poke    # clone the pokemonData repository if it is missing
 ```
 
